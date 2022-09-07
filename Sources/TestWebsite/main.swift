@@ -29,6 +29,5 @@ try TestWebsite().publish(using: [
     .copyResources(),
     .generateHTML(withTheme: .basic),
     .generateRSSFeed(including: [.posts]),
-    .generateSiteMap(),
-    .deploy(using: .gitHub("lukasbahrle/static-website"))
+    .generateSiteMap()
 ])

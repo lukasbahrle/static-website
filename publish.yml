@@ -18,4 +18,3 @@ jobs:
         mkdir .public
         cp -r Output/* .public
         mv .public public
-        echo $CI_PAGES_URL
