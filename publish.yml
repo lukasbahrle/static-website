@@ -1,0 +1,21 @@
+name: Publish
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  deploy:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Generate
+      run: swift run
+    - name: Copy files
+      run: |
+        mkdir .public
+        cp -r Output/* .public
+        mv .public public
+        echo $CI_PAGES_URL
