@@ -22,7 +22,7 @@ jobs:
         cp -r Output/* .public
         mv .public public
     - name: 'Upload generated files'
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-pages-artifact
       with:
-        name: public
+        name: github-pages
         path: public
