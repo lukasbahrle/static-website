@@ -21,8 +21,8 @@ jobs:
         mkdir .public
         cp -r Output/* .public
         mv .public public
-    - name: 'Upload generated files'
-      uses: actions/upload-pages-artifact
+    - name: Upload generated files
+      uses: actions/upload-artifact@main
       with:
         name: github-pages
         path: public
