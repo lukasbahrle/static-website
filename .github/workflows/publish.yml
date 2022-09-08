@@ -4,6 +4,17 @@ on:
   push:
     branches: [ "master" ]
 
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   deploy:
 
@@ -22,7 +33,9 @@ jobs:
         cp -r Output/* .public
         mv .public public
     - name: Upload generated files
-      uses: actions/upload-artifact@main
+      uses: actions/upload-pages-artifact@v1
       with:
-        name: github-pages
         path: public
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v1
